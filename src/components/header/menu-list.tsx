@@ -1,8 +1,8 @@
 import { Button } from "@/tailwind-components/ui/button"
 import {
-  BaggageClaimIcon,
   HeartIcon,
   LogIn,
+  ShoppingBagIcon,
   ShoppingCartIcon,
 } from "lucide-react"
 import Link from "next/link"
@@ -15,12 +15,12 @@ import {
 
 const MenuList = () => {
   return (
-    <div className='flex items-center space-x-5'>
+    <div className='items-center space-x-5 hidden md:flex'>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
             <Link href='/' className='flex items-center'>
-              <BaggageClaimIcon className='mr-2' />
+              <ShoppingBagIcon className='mr-2' />
             </Link>
           </TooltipTrigger>
           <TooltipContent>
