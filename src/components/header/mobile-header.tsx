@@ -1,8 +1,4 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/tailwind-components/ui/avatar"
+import { Avatar, AvatarImage } from "@/tailwind-components/ui/avatar"
 import { Button } from "@/tailwind-components/ui/button"
 import { Separator } from "@/tailwind-components/ui/separator"
 import {
@@ -18,15 +14,42 @@ import {
   MenuIcon,
   ShoppingBagIcon,
   ShoppingCart,
+  User,
 } from "lucide-react"
 import Logo from "../logo"
 import MenuLink from "./menu-link"
+import { signOut, useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const MobileHeader = () => {
+  const { data: userDetails } = useSession()
+
+  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
+
+  const router = useRouter()
+
+  const handleSignOutUser = () => {
+    signOut()
+  }
+
+  const handleNavigateLoginPage = () => {
+    router.push("/login")
+    setIsOpenMenu(false)
+  }
+
+  const handleOpenMenubar = () => {
+    setIsOpenMenu(!isOpenMenu)
+  }
+
   return (
-    <Sheet>
+    <Sheet onOpenChange={handleOpenMenubar} open={isOpenMenu}>
       <SheetTrigger asChild>
-        <Button variant='ghost' className='block md:hidden'>
+        <Button
+          variant='ghost'
+          className='block md:hidden'
+          onClick={handleOpenMenubar}
+        >
           <MenuIcon />
         </Button>
       </SheetTrigger>
@@ -36,15 +59,25 @@ const MobileHeader = () => {
             <Logo className='text-md lg:text-lg' />
           </SheetTitle>
 
-          <div className='w-full flex items-center text-white text-xl px-4 pb-4'>
-            <Avatar className='mr-3'>
-              <AvatarImage src='' alt='@shadcn' />
-              <AvatarFallback className='bg-white text-black'>
-                DP
-              </AvatarFallback>
-            </Avatar>
-            Daksh Patel
-          </div>
+          {userDetails !== null ? (
+            <div className='w-full flex items-center text-white text-xl px-4 pb-4'>
+              <Avatar className='mr-3'>
+                <AvatarImage
+                  src={userDetails?.user?.image ?? ""}
+                  alt={userDetails?.user?.name ?? "avatar"}
+                />
+              </Avatar>
+              {userDetails?.user?.name ?? ""}
+            </div>
+          ) : (
+            <div
+              className='flex items-center text-lg text-white p-3 md:p-4 hover:bg-white hover:text-black cursor-pointer'
+              onClick={handleNavigateLoginPage}
+            >
+              <User className='mr-3' />
+              Sign In
+            </div>
+          )}
 
           <Separator className='my-5 bg-white opacity-20' />
 
@@ -66,10 +99,15 @@ const MobileHeader = () => {
 
           <Separator className='my-5 bg-white opacity-20' />
 
-          <div className='flex items-center text-lg text-white p-3 md:p-4 hover:bg-white hover:text-black cursor-pointer'>
-            <LogOutIcon className='mr-3' />
-            Sign Out
-          </div>
+          {userDetails !== null && (
+            <div
+              className='flex items-center text-lg text-white p-3 md:p-4 hover:bg-white hover:text-black cursor-pointer'
+              onClick={handleSignOutUser}
+            >
+              <LogOutIcon className='mr-3' />
+              Sign Out
+            </div>
+          )}
 
           <Separator className='my-5 bg-white opacity-20' />
         </SheetHeader>

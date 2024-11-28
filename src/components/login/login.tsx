@@ -2,7 +2,6 @@
 
 import { Button } from "@/tailwind-components/ui/button"
 import { FcGoogle } from "react-icons/fc"
-import { FaFacebook, FaApple } from "react-icons/fa"
 import { Separator } from "@/tailwind-components/ui/separator"
 import { signIn } from "next-auth/react"
 
@@ -22,27 +21,13 @@ const Login = () => {
 
         <Separator className='my-5 bg-gray-600' />
 
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 gap-4'>
           <Button
             className='border border-[#38393B] rounded-md bg-transparent'
             variant='outline'
             onClick={handleGoogleSignIn}
           >
             <FcGoogle /> Google
-          </Button>
-
-          <Button
-            className='border border-[#38393B] rounded-md bg-transparent'
-            variant='outline'
-          >
-            <FaFacebook /> FaceBook
-          </Button>
-
-          <Button
-            className='border border-[#38393B] rounded-md bg-transparent'
-            variant='outline'
-          >
-            <FaApple /> Apple
           </Button>
         </div>
       </div>

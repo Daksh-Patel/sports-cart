@@ -3,6 +3,7 @@
 import { Button } from "@/tailwind-components/ui/button"
 import {
   HeartIcon,
+  LogOutIcon,
   ShoppingBagIcon,
   ShoppingCartIcon,
   User,
@@ -15,10 +16,22 @@ import {
   TooltipTrigger,
 } from "@/tailwind-components/ui/tooltip"
 import { useRouter } from "next/navigation"
+import { signOut, useSession } from "next-auth/react"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/tailwind-components/ui/popover"
+import { Avatar, AvatarImage } from "@/tailwind-components/ui/avatar"
 
 const MenuList = () => {
   const router = useRouter()
 
+  const { data: userDetails } = useSession()
+
+  const handleSignOutUser = () => {
+    signOut()
+  }
   const handleNavigateLoginPage = () => {
     router.push("/login")
   }
@@ -70,13 +83,41 @@ const MenuList = () => {
         </Tooltip>
       </TooltipProvider>
 
-      <Button
-        className='bg-white text-black ring-white ring-inset ring-2 rounded-md hover:bg-black hover:text-white font-semibold'
-        onClick={handleNavigateLoginPage}
-      >
-        <User />
-        Sign In
-      </Button>
+      {userDetails === null ? (
+        <Button
+          variant='outline'
+          className='bg-transparent text-white ring-[#38393B] ring-inset ring-2 rounded-md hover:bg-white hover:text-black font-semibold'
+          onClick={handleNavigateLoginPage}
+        >
+          <User />
+          Sign In
+        </Button>
+      ) : (
+        <>
+          <Popover>
+            <PopoverTrigger>
+              <div className='w-full flex items-center text-white text-xl cursor-pointer'>
+                {userDetails?.user?.name ?? ""}
+                <Avatar className='ml-3'>
+                  <AvatarImage
+                    src={userDetails?.user?.image ?? ""}
+                    alt={userDetails?.user?.name ?? "avatar"}
+                  />
+                </Avatar>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent className='w-[200px] p-3 bg-black mt-5 border border-[#38393B]'>
+              <Button
+                className='w-full bg-transparent text-white ring-[#38393B] ring-inset ring-2 rounded-md hover:bg-white hover:text-black font-semibold'
+                onClick={handleSignOutUser}
+              >
+                <LogOutIcon />
+                Sign out
+              </Button>
+            </PopoverContent>
+          </Popover>
+        </>
+      )}
     </div>
   )
 }
