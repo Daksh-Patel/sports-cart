@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import MainLayout from "./main-layout"
+import Header from "@/components/header/header"
+import SessionProvider from "../../provider/session-provider"
 
 export const metadata: Metadata = {
   title: "Shopping Sports Item",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className='w-full'>
-        <MainLayout>{children}</MainLayout>
+        <SessionProvider>
+          <Header />
+          {children}
+        </SessionProvider>
       </body>
     </html>
   )

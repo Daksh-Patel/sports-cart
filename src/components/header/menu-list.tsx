@@ -20,7 +20,7 @@ const MenuList = () => {
   const router = useRouter()
 
   const handleNavigateLoginPage = () => {
-    router.push("/auth/login")
+    router.push("/login")
   }
 
   return (
