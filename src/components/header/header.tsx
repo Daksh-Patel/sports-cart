@@ -4,20 +4,27 @@ import React from "react"
 import Logo from "../logo"
 import MenuList from "./menu-list"
 import MobileHeader from "./mobile-header"
+import { usePathname } from "next/navigation"
 
 const Header = () => {
+  const pathName = usePathname()
+
+  const isHeader = pathName === "/login"
+
   return (
-    <div className='py-5 md:px-2 shadow-lg shadow-gray-500/30'>
-      <div className='container'>
-        <div className='flex items-center justify-between'>
-          <Logo />
+    <header className={`${isHeader ? "hidden" : "block"}`}>
+      <div className='py-5 md:px-2 shadow-lg shadow-gray-500/20'>
+        <div className='container'>
+          <div className='flex items-center justify-between'>
+            <Logo />
 
-          <MenuList />
+            <MenuList />
 
-          <MobileHeader />
+            <MobileHeader />
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

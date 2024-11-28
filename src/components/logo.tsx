@@ -11,15 +11,15 @@ const Logo = (props: LogoType) => {
   const { className } = props
 
   return (
-    <Link href='/'>
-      <h1
+    <Link href='/' className='cursor-pointer'>
+      <p
         className={cn(
-          "text-2xl lg:text-4xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500  text-transparent bg-clip-text",
+          "text-2xl lg:text-4xl font-extrabold text-white",
           className,
         )}
       >
         SportsCart
-      </h1>
+      </p>
     </Link>
   )
 }
