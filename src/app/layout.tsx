@@ -2,11 +2,14 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Header from "@/components/header/header"
 import SessionProvider from "../../provider/session-provider"
+import { Raleway } from "next/font/google"
 
 export const metadata: Metadata = {
   title: "Shopping Sports Item",
   description: "SportsCart: Play Hard, Shop Smart",
 }
+
+const ralewayFont = Raleway({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,
@@ -15,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className='w-full'>
+      <body className={ralewayFont.className}>
         <SessionProvider>
           <Header />
           {children}
