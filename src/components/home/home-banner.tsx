@@ -10,6 +10,9 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "@/tailwind-components/ui/button"
 import { ShoppingBag } from "lucide-react"
+import TextAnimation from "../animation/text-animation"
+import BlurAnimation from "../animation/blur-animation"
+import { motion } from "framer-motion"
 
 const bannerImages = [Banner1, Banner2, Banner3, Banner4]
 
@@ -58,22 +61,38 @@ const HomeBanner = () => {
       </div>
       <div className='w-full absolute top-[50%] translate-y-[-50%] text-center left-[50%] translate-x-[-50%]'>
         <div className='container'>
-          <h1 className='text-5xl md:text-6xl font-extrabold'>
-            Sports Cart <p className='mt-2'>Play Hard, Shop Smart</p>
+          <h1 className='text-5xl md:text-6xl font-extrabold flex w-full justify-center items-center space-x-1'>
+            <TextAnimation text='Sports Cart' />
           </h1>
 
-          <p className='text-base md:text-lg max-w-[900px] mx-auto pt-4 text-[#c0c0c0]'>
+          <h2 className='mt-2 text-5xl md:text-6xl font-extrabold flex w-full justify-center items-center space-x-1'>
+            <TextAnimation text='Play Hard, Shop Smart' />
+          </h2>
+
+          {/* <p className='text-base md:text-lg max-w-[900px] mx-auto pt-4 text-[#c0c0c0]'>
             Sports Cart is your go-to online store for all things sports. Find
             top-quality gear, apparel, and accessories for every sport. Shop now
             and elevate your game with the best products and prices!
-          </p>
+          </p> */}
 
-          <Button
-            className='border border-white rounded-md bg-transparent mt-5'
-            variant='outline'
+          <BlurAnimation
+            text='Sports Cart is your go-to online store for all things sports. Find
+            top-quality gear, apparel, and accessories for every sport. Shop now
+            and elevate your game with the best products and prices!'
+          />
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
-            Shop Now <ShoppingBag />
-          </Button>
+            <Button
+              className='border border-white rounded-md bg-transparent mt-5'
+              variant='outline'
+            >
+              Shop Now <ShoppingBag />
+            </Button>
+          </motion.div>
         </div>
       </div>
     </div>
