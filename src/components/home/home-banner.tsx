@@ -15,7 +15,7 @@ const bannerImages = [Banner1, Banner2, Banner3, Banner4]
 
 const animation = { duration: 5000, easing: (t: number) => t }
 
-const Home = () => {
+const HomeBanner = () => {
   const [opacities, setOpacities] = useState<number[]>([])
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -80,4 +80,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeBanner
