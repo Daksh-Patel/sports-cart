@@ -1,7 +1,14 @@
-import Home from "@/components/home/home"
+import HomeBanner from "@/components/home/home-banner"
+import Products from "@/components/products/products"
 
 const HomePage = () => {
-  return <Home />
+  return (
+    <>
+      <HomeBanner />
+
+      <Products />
+    </>
+  )
 }
 
 export default HomePage
