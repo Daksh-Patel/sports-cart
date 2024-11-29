@@ -99,7 +99,7 @@ const MenuList = () => {
           <Suspense key={userDetails?.user?.name} fallback={<Loading />}>
             <Popover>
               <PopoverTrigger>
-                <div className='w-full flex items-center text-white text-xl cursor-pointer'>
+                <div className='w-full flex items-center text-white text-xl cursor-pointer capitalize'>
                   {userDetails?.user?.name ? (
                     <>
                       {userDetails?.user?.name}

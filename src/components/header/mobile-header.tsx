@@ -61,7 +61,7 @@ const MobileHeader = () => {
           </SheetTitle>
 
           {userDetails !== null ? (
-            <div className='w-full flex items-center text-white text-xl px-4 pb-4'>
+            <div className='w-full flex items-center text-white text-xl px-4 pb-4 capitalize'>
               {userDetails?.user?.name ? (
                 <>
                   <Avatar className='mr-3'>
