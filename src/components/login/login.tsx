@@ -11,7 +11,7 @@ const Login = () => {
   }
 
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div className='flex items-center justify-center h-screen px-5'>
       <div className='w-full p-5 max-w-[600px] mx-auto rounded-md boxShadow'>
         <h1 className='text-2xl font-semibold w-full text-center pb-2'>
           Welcome Back!
