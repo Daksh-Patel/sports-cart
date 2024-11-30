@@ -61,19 +61,13 @@ const HomeBanner = () => {
       </div>
       <div className='w-full absolute top-[50%] translate-y-[-50%] text-center left-[50%] translate-x-[-50%]'>
         <div className='container'>
-          <h1 className='text-5xl md:text-6xl font-extrabold flex w-full justify-center items-center space-x-1'>
+          <h1 className='flex flex-wrap w-full justify-center items-center space-x-[2px] md:space-x-1'>
             <TextAnimation text='Sports Cart' />
           </h1>
 
-          <h2 className='mt-2 text-5xl md:text-6xl font-extrabold flex w-full justify-center items-center space-x-1'>
+          <h2 className='mt-2 flex flex-wrap w-full justify-center items-center space-x-[2px] md:space-x-1'>
             <TextAnimation text='Play Hard, Shop Smart' />
           </h2>
-
-          {/* <p className='text-base md:text-lg max-w-[900px] mx-auto pt-4 text-[#c0c0c0]'>
-            Sports Cart is your go-to online store for all things sports. Find
-            top-quality gear, apparel, and accessories for every sport. Shop now
-            and elevate your game with the best products and prices!
-          </p> */}
 
           <BlurAnimation
             text='Sports Cart is your go-to online store for all things sports. Find
