@@ -7,7 +7,7 @@ interface ProductCardProps {
   imageSrc: StaticImageData
 }
 
-const ProductCard = (props: ProductCardProps) => {
+const CategoriesCard = (props: ProductCardProps) => {
   const { href, title, imageSrc } = props
 
   return (
@@ -27,4 +27,4 @@ const ProductCard = (props: ProductCardProps) => {
   )
 }
 
-export default ProductCard
+export default CategoriesCard

@@ -4,13 +4,13 @@ import Ball from "../assets/images/ball.png"
 import Badminton from "../assets/images/badminton.png"
 import Football from "../assets/images/football.png"
 
-type ProductsType = {
+type CategoriesItemsType = {
   id: number
   name: string
   image: StaticImageData
 }
 
-export const ProductItems: ProductsType[] = [
+export const CategoriesItems: CategoriesItemsType[] = [
   {
     id: 1,
     name: "Cricket Bat",

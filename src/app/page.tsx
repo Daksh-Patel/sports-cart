@@ -1,12 +1,12 @@
 import HomeBanner from "@/components/home/home-banner"
-import Products from "@/components/products/products"
+import Categories from "@/components/categories/categories"
 
 const HomePage = () => {
   return (
     <>
       <HomeBanner />
 
-      <Products />
+      <Categories />
     </>
   )
 }
