@@ -1,17 +1,6 @@
-type FootballType = {
-  id: number
-  name: string
-  type: string
-  price: number
-  rating: number
-  image: string
-  popular: boolean
-  discount: number
-  discountPrice: number
-  company: string
-}
+import { ProductsType } from "./type"
 
-export const Football: FootballType[] = [
+export const Football: ProductsType[] = [
   {
     id: 1,
     name: "Nike Flight",
@@ -31,7 +20,7 @@ export const Football: FootballType[] = [
     price: 4500,
     rating: 4.7,
     image: "https://example.com/images/adidas-tango-espana.jpg",
-    popular: true,
+    popular: false,
     discount: 10,
     discountPrice: 4050,
     company: "Adidas",

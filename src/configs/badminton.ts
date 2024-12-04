@@ -1,17 +1,6 @@
-type BadmintonType = {
-  id: number
-  name: string
-  type: string
-  price: number
-  rating: number
-  image: string
-  popular: boolean
-  discount: number
-  discountPrice: number
-  company: string
-}
+import { ProductsType } from "./type"
 
-export const Badminton: BadmintonType[] = [
+export const Badminton: ProductsType[] = [
   {
     id: 1,
     name: "Yonex Astrox 100 ZZ",
@@ -43,7 +32,7 @@ export const Badminton: BadmintonType[] = [
     price: 8000,
     rating: 4.5,
     image: "https://example.com/images/victor-brave-sword-12.jpg",
-    popular: true,
+    popular: false,
     discount: 12,
     discountPrice: 7040,
     company: "Victor",
@@ -79,7 +68,7 @@ export const Badminton: BadmintonType[] = [
     price: 9500,
     rating: 4.6,
     image: "https://example.com/images/li-ning-super-series-9900.jpg",
-    popular: true,
+    popular: false,
     discount: 15,
     discountPrice: 8075,
     company: "Li-Ning",

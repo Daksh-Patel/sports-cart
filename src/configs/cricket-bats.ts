@@ -1,17 +1,6 @@
-type CricketBatsType = {
-  id: number
-  name: string
-  type: string
-  price: number
-  rating: number
-  image: string
-  popular: boolean
-  discount: number
-  discountPrice: number
-  company: string
-}
+import { ProductsType } from "./type"
 
-export const CricketBats: CricketBatsType[] = [
+export const CricketBats: ProductsType[] = [
   {
     id: 1,
     name: "SS Master 1000",
@@ -31,7 +20,7 @@ export const CricketBats: CricketBatsType[] = [
     price: 7000,
     rating: 4.5,
     image: "https://example.com/images/ss-ton-gold.jpg",
-    popular: true,
+    popular: false,
     discount: 15,
     discountPrice: 5950,
     company: "SS",
@@ -43,7 +32,7 @@ export const CricketBats: CricketBatsType[] = [
     price: 8000,
     rating: 4.7,
     image: "https://example.com/images/mrf-genius-grand-edition.jpg",
-    popular: true,
+    popular: false,
     discount: 12,
     discountPrice: 7040,
     company: "MRF",
@@ -127,7 +116,7 @@ export const CricketBats: CricketBatsType[] = [
     price: 8500,
     rating: 4.6,
     image: "https://example.com/images/sg-sunny-tonny.jpg",
-    popular: true,
+    popular: false,
     discount: 10,
     discountPrice: 7650,
     company: "SG",
