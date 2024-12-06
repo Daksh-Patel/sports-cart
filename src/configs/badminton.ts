@@ -6,7 +6,7 @@ import VictorBrave from "../assets/images/badminton/victor-brave.png"
 import BabolatFeel from "../assets/images/badminton/babolat_feel.png"
 import YonexVoltric from "../assets/images/badminton/yonex-voltric.png"
 import LiNingSuper from "../assets/images/badminton/la-ning-super.png"
-import VictorAuraspeed from "../assets/images/badminton/la-ning-super.png"
+import VictorAuraspeed from "../assets/images/badminton/victor-auraspeed.png"
 
 export const Badminton: ProductsType[] = [
   {
