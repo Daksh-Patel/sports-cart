@@ -9,7 +9,7 @@ import {
 import Image, { StaticImageData } from "next/image"
 import { Button } from "@/tailwind-components/ui/button"
 import { Heart, ShoppingBag, Star } from "lucide-react"
-import { useState } from "react"
+import { ProductsType } from "@/configs/type"
 
 interface ProductCardProps {
   productImage: StaticImageData
@@ -19,6 +19,12 @@ interface ProductCardProps {
   discountPrice: number
   price: number
   discount: number
+  product: ProductsType
+  isWishListProduct: boolean
+  isVisibleAddToCartButton: boolean
+  handleAddToCartProduct: (product: ProductsType) => void
+  handleWishListProduct: (product: ProductsType, productId?: number) => void
+  productId?: number
 }
 
 const ProductCard = (props: ProductCardProps) => {
@@ -30,13 +36,13 @@ const ProductCard = (props: ProductCardProps) => {
     discount,
     discountPrice,
     companyName,
+    handleAddToCartProduct,
+    isVisibleAddToCartButton,
+    isWishListProduct,
+    product,
+    handleWishListProduct,
+    productId,
   } = props
-
-  const [isFav, setIsFav] = useState<boolean>(false)
-
-  const handleWhishList = () => {
-    setIsFav(!isFav)
-  }
 
   return (
     <Card className='bg-transparent boxShadow border-0 group/item text-white keen-slider__slide relative'>
@@ -67,24 +73,28 @@ const ProductCard = (props: ProductCardProps) => {
         </p>
       </CardContent>
       <CardFooter className='justify-end'>
-        <Button
-          variant='outline'
-          className='bg-transparent text-white ring-[#38393B] ring-inset ring-2 rounded-md hover:bg-white hover:text-black font-semibold'
-        >
-          <ShoppingBag />
-          Add To Cart
-        </Button>
+        {isVisibleAddToCartButton && (
+          <Button
+            variant='outline'
+            className='bg-transparent text-white ring-[#38393B] ring-inset ring-2 rounded-md hover:bg-white hover:text-black font-semibold'
+            onClick={() => handleAddToCartProduct(product)}
+          >
+            <ShoppingBag />
+            Add To Cart
+          </Button>
+        )}
       </CardFooter>
 
-      <div
-        className='w-10 h-10 bg-black flex items-center justify-center rounded-full absolute top-[30px] right-[30px] z-30 cursor-pointer'
-        onClick={handleWhishList}
+      <Button
+        className='w-8 h-8 bg-black flex items-center justify-center rounded-full absolute top-[30px] right-[30px] z-30 cursor-pointer'
+        onClick={() => handleWishListProduct(product, productId)}
+        disabled={isWishListProduct}
       >
         <Heart
-          fill={isFav ? "red" : "transparent"}
-          stroke={isFav ? "red" : "white"}
+          fill={isWishListProduct ? "red" : "transparent"}
+          stroke={isWishListProduct ? "red" : "white"}
         />
-      </div>
+      </Button>
     </Card>
   )
 }

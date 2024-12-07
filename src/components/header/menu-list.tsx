@@ -25,6 +25,8 @@ import {
 import { Avatar, AvatarImage } from "@/tailwind-components/ui/avatar"
 import { Suspense } from "react"
 import Loading from "./loading"
+import { useSelector } from "react-redux"
+import { AddToCartType } from "@/configs/type"
 
 const MenuList = () => {
   const router = useRouter()
@@ -37,6 +39,14 @@ const MenuList = () => {
   const handleNavigateLoginPage = () => {
     router.push("/login")
   }
+
+  const addedCartProducts = useSelector((state: AddToCartType) => {
+    return state.addToCart
+  })
+
+  const addedWishListProduct = useSelector((state: AddToCartType) => {
+    return state.addToWishList
+  })
 
   return (
     <div className='items-center space-x-5 hidden md:flex'>
@@ -59,7 +69,7 @@ const MenuList = () => {
             <Link href='/' className='flex items-center relative'>
               <HeartIcon className='relative mr-2' />
               <span className='absolute bottom-[12px] right-[4px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
-                0
+                {addedWishListProduct.length}
               </span>
             </Link>
           </TooltipTrigger>
@@ -75,7 +85,7 @@ const MenuList = () => {
             <Link href='/' className='flex items-center relative'>
               <ShoppingCartIcon className='relative mr-2' />
               <span className='absolute bottom-[12px] right-[4px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
-                0
+                {addedCartProducts.length}
               </span>
             </Link>
           </TooltipTrigger>

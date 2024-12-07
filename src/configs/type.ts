@@ -19,3 +19,8 @@ export type CategoriesItemsType = {
   image: StaticImageData
   products: ProductsType[]
 }
+
+export type AddToCartType = {
+  addToCart: ProductsType[]
+  addToWishList: ProductsType[]
+}
