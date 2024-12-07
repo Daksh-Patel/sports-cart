@@ -18,7 +18,7 @@ const CarouselArrow = (props: CarouselArrowProps) => {
           variant='outline'
           onClick={handleArrowClick}
           disabled={isDisabled}
-          className='bg-transparent rounded-full w-6 relative right-[50px]'
+          className='bg-transparent rounded-full w-[24px] h-[34px] relative right-[50px]'
         >
           <ChevronLeft />
         </Button>
@@ -29,7 +29,7 @@ const CarouselArrow = (props: CarouselArrowProps) => {
           variant='outline'
           disabled={isDisabled}
           onClick={handleArrowClick}
-          className='bg-transparent rounded-full w-6'
+          className='bg-transparent rounded-full w-[24px] h-[34px]'
         >
           <ChevronRight />
         </Button>
