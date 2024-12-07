@@ -3,6 +3,7 @@ import "./globals.css"
 import Header from "@/components/header/header"
 import SessionProvider from "../../provider/session-provider"
 import { Raleway } from "next/font/google"
+import { Toaster } from "@/tailwind-components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "Shopping Sports Item",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <SessionProvider>
           <Header />
           {children}
+          <Toaster />
         </SessionProvider>
       </body>
     </html>
