@@ -1,20 +1,14 @@
-import { StaticImageData } from "next/image"
 import Bat from "../assets/images/bat.png"
 import Ball from "../assets/images/ball.png"
 import BadmintonImage from "../assets/images/badminton.png"
 import FootballImage from "../assets/images/football.png"
-import { ProductsType } from "./type"
+import InnerGloves from "../assets/images/inner-gloves.png"
 import { CricketBats } from "./cricket-bats"
 import { CricketBalls } from "./cricket-balls"
 import { Badminton } from "./badminton"
 import { Football } from "./football"
-
-type CategoriesItemsType = {
-  categoryId: number
-  name: string
-  image: StaticImageData
-  products: ProductsType[]
-}
+import { CategoriesItemsType } from "./type"
+import { InnerGlovesItem } from "./inner-gloves"
 
 export const CategoriesItems: CategoriesItemsType[] = [
   {
@@ -40,5 +34,11 @@ export const CategoriesItems: CategoriesItemsType[] = [
     name: "Football",
     products: Football,
     image: FootballImage,
+  },
+  {
+    categoryId: 5,
+    name: "Inner Gloves",
+    products: InnerGlovesItem,
+    image: InnerGloves,
   },
 ]

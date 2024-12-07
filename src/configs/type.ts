@@ -12,3 +12,10 @@ export type ProductsType = {
   discountPrice: number
   company: string
 }
+
+export type CategoriesItemsType = {
+  categoryId: number
+  name: string
+  image: StaticImageData
+  products: ProductsType[]
+}
