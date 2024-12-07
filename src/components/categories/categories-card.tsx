@@ -13,7 +13,7 @@ const CategoriesCard = (props: ProductCardProps) => {
   return (
     <Link
       href={href}
-      className='group/item boxShadow  p-3 rounded-xl keen-slider__slide relative'
+      className='group/item boxShadow  p-3 rounded-xl keen-slider__slide relative m-1'
     >
       <div className='p-4 bg-[#ebecf0] rounded-xl overflow-hidden'>
         <h3 className='text-2xl font-bold text-black text-center pb-4'>
