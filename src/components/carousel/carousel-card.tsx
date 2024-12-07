@@ -23,8 +23,11 @@ const CarouselCard = (props: CarouselCardProps) => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     breakpoints: {
+      "(max-width: 320px)": {
+        slides: { perView: 1, spacing: 15 },
+      },
       "(min-width: 600px)": {
-        slides: { perView: 2, spacing: 5 },
+        slides: { perView: 2, spacing: 20 },
       },
       "(min-width: 1024px)": {
         slides: { perView: 3, spacing: 25 },
