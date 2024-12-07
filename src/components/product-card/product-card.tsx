@@ -45,7 +45,7 @@ const ProductCard = (props: ProductCardProps) => {
   } = props
 
   return (
-    <Card className='bg-transparent boxShadow border-0 group/item text-white keen-slider__slide relative m-1'>
+    <Card className='bg-transparent boxShadow border-0 group/item text-white keen-slider__slide relative my-1'>
       <CardHeader>
         <div className='p-4 bg-[#ebecf0] rounded-xl overflow-hidden'>
           <Image
