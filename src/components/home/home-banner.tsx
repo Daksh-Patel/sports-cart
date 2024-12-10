@@ -54,6 +54,7 @@ const HomeBanner = () => {
             <Image
               src={src}
               alt='banner_1'
+              loading='lazy'
               className='w-full min-h-[600px] max-h-[600px] object-cover'
             />
           </div>

@@ -54,6 +54,7 @@ const ProductCard = (props: ProductCardProps) => {
           <Image
             src={productImage}
             alt={productTitle}
+            loading='lazy'
             className='w-full ease-in-out duration-300 max-h-[200px] object-contain group-hover/item:scale-110'
           />
         </div>

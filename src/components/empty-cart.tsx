@@ -12,7 +12,7 @@ const EmptyCart = (props: EmptyCartProps) => {
 
   return (
     <div className='max-w-[500px] mx-auto w-full text-center mt-5'>
-      <Image src={EmptyImage} alt='empty' />
+      <Image src={EmptyImage} alt='empty' loading='lazy' />
 
       <h2 className='text-2xl font-bold'>{title}</h2>
     </div>
