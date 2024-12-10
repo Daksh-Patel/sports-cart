@@ -10,6 +10,7 @@ import Image, { StaticImageData } from "next/image"
 import { Button } from "@/tailwind-components/ui/button"
 import { Heart, ShoppingBag, Star } from "lucide-react"
 import { ProductsType } from "@/configs/type"
+import { usePathname } from "next/navigation"
 
 interface ProductCardProps {
   productImage: StaticImageData
@@ -23,8 +24,8 @@ interface ProductCardProps {
   isWishListProduct: boolean
   isVisibleAddToCartButton: boolean
   handleAddToCartProduct: (product: ProductsType) => void
-  handleWishListProduct: (product: ProductsType, productId?: number) => void
-  productId?: number
+  handleWishListProduct: (product: ProductsType, productId: number) => void
+  productId: number
 }
 
 const ProductCard = (props: ProductCardProps) => {
@@ -43,6 +44,8 @@ const ProductCard = (props: ProductCardProps) => {
     handleWishListProduct,
     productId,
   } = props
+
+  const pathName = usePathname()
 
   return (
     <Card className='bg-transparent boxShadow border-0 group/item text-white keen-slider__slide relative my-1'>
@@ -88,7 +91,7 @@ const ProductCard = (props: ProductCardProps) => {
       <Button
         className='w-8 h-8 bg-black flex items-center justify-center rounded-full absolute top-[30px] right-[30px] z-30 cursor-pointer'
         onClick={() => handleWishListProduct(product, productId)}
-        disabled={isWishListProduct}
+        disabled={isWishListProduct && pathName !== "/my-wishlist"}
       >
         <Heart
           fill={isWishListProduct ? "red" : "transparent"}

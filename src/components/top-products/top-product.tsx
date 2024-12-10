@@ -38,6 +38,12 @@ const TopProducts = () => {
       })
     } else {
       dispatch(addToCartProduct(product))
+
+      toast({
+        description: "Your product is now in the cart.",
+        type: "background",
+        duration: 1000,
+      })
     }
   }
 
@@ -49,6 +55,12 @@ const TopProducts = () => {
       })
     } else {
       dispatch(addToWishListProduct(product))
+
+      toast({
+        description: "Your product is now in the wishlist.",
+        type: "background",
+        duration: 1000,
+      })
     }
   }
 
