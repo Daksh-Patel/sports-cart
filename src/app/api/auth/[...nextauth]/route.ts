@@ -15,6 +15,9 @@ const authOptions = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
 })
 
 export { authOptions as GET, authOptions as POST }
