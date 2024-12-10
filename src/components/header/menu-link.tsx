@@ -12,7 +12,7 @@ const MenuLink = (props: MenuLinkType) => {
   return (
     <Link
       href={href}
-      className='flex items-center text-lg text-white p-3 md:p-4 hover:bg-white hover:text-black'
+      className='flex relative items-center text-lg text-white p-3 md:p-4 hover:bg-white hover:text-black'
     >
       {children}
       {title}

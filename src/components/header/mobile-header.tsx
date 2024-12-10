@@ -3,6 +3,7 @@ import { Button } from "@/tailwind-components/ui/button"
 import { Separator } from "@/tailwind-components/ui/separator"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -22,11 +23,21 @@ import { signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Loading from "./loading"
+import { useSelector } from "react-redux"
+import { AddToCartType } from "@/configs/type"
 
 const MobileHeader = () => {
   const { data: userDetails } = useSession()
 
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false)
+
+  const addedCartProducts = useSelector((state: AddToCartType) => {
+    return state.addToCart
+  })
+
+  const addedWishListProduct = useSelector((state: AddToCartType) => {
+    return state.addToWishList
+  })
 
   const router = useRouter()
 
@@ -43,6 +54,10 @@ const MobileHeader = () => {
     setIsOpenMenu(!isOpenMenu)
   }
 
+  const handleCloseSheet = () => {
+    setIsOpenMenu(false)
+  }
+
   return (
     <Sheet onOpenChange={handleOpenMenubar} open={isOpenMenu}>
       <SheetTrigger asChild>
@@ -54,7 +69,7 @@ const MobileHeader = () => {
           <MenuIcon />
         </Button>
       </SheetTrigger>
-      <SheetContent className='bg-black text-white p-0 w-[280px]'>
+      <SheetContent className='bg-black text-white p-0 w-[280px] border border-black'>
         <SheetHeader>
           <SheetTitle className='text-lg font-bold p-5 w-full text-left'>
             <Logo className='text-md lg:text-lg' />
@@ -88,21 +103,34 @@ const MobileHeader = () => {
 
           <Separator className='my-5 bg-white opacity-20' />
 
-          <MenuLink title='My Cart' href='/'>
-            <ShoppingCart className='mr-3' />
-          </MenuLink>
+          <SheetClose onClick={handleCloseSheet}>
+            <MenuLink title='My Cart' href='/'>
+              <ShoppingCart className='mr-3' />
+
+              <span className='absolute top-[10px] left-[24px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
+                {addedCartProducts.length}
+              </span>
+            </MenuLink>
+          </SheetClose>
 
           <Separator className='my-5 bg-white opacity-20' />
 
-          <MenuLink title='My Wishlist' href='/'>
-            <HeartIcon className='mr-3' />
-          </MenuLink>
+          <SheetClose onClick={handleCloseSheet}>
+            <MenuLink title='My Wishlist' href='/my-wishlist'>
+              <HeartIcon className='mr-3' />
+              <span className='absolute top-[12px] left-[24px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
+                {addedWishListProduct.length}
+              </span>
+            </MenuLink>
+          </SheetClose>
 
           <Separator className='my-5 bg-white opacity-20' />
 
-          <MenuLink title='My Order' href='/'>
-            <ShoppingBagIcon className='mr-3' />
-          </MenuLink>
+          <SheetClose onClick={handleCloseSheet}>
+            <MenuLink title='My Order' href='/'>
+              <ShoppingBagIcon className='mr-3' />
+            </MenuLink>
+          </SheetClose>
 
           <Separator className='my-5 bg-white opacity-20' />
 
