@@ -31,7 +31,7 @@ const MyCart = () => {
         <EmptyCart title='Oops! Your cart has nothing in it.' />
       )}
 
-      <div className='my-10 grid grid-cols-2 gap-6'>
+      <div className='my-10 grid grid-cols-1 xl:grid-cols-2 gap-6'>
         {addedCartProducts.map((product, index) => (
           <MyCartCard
             key={product.id}
