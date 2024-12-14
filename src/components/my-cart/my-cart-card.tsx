@@ -37,7 +37,7 @@ const MyCartCard = (props: MyCartCardProps) => {
 
   return (
     <div className='boxShadow p-5 flex flex-col sm:flex-row sm:space-x-5 rounded-2xl relative'>
-      <div className='p-4 bg-[#ebecf0] flex items-center justify-center max-w-[480px] sm:max-w-[150px] sm:max-h-[150px] rounded-xl overflow-hidden'>
+      <div className='p-4 bg-[#ebecf0] flex items-center justify-center max-w-[700px] sm:max-w-[150px] sm:max-h-[150px] rounded-xl overflow-hidden'>
         <Image
           src={productImage}
           alt={productTitle}
