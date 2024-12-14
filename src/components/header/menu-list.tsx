@@ -82,7 +82,7 @@ const MenuList = () => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>
-            <Link href='/' className='flex items-center relative'>
+            <Link href='/my-cart' className='flex items-center relative'>
               <ShoppingCartIcon className='relative mr-2' />
               <span className='absolute bottom-[12px] right-[4px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
                 {addedCartProducts.length}

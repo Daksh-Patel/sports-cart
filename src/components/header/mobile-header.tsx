@@ -104,7 +104,7 @@ const MobileHeader = () => {
           <Separator className='my-5 bg-white opacity-20' />
 
           <SheetClose onClick={handleCloseSheet}>
-            <MenuLink title='My Cart' href='/'>
+            <MenuLink title='My Cart' href='/my-cart'>
               <ShoppingCart className='mr-3' />
 
               <span className='absolute top-[10px] left-[24px] w-4 h-4 rounded-full bg-pink-400 flex items-center justify-center p-2 text-xs'>
