@@ -18,7 +18,7 @@ const Categories = () => {
                 key={cat.categoryId}
                 imageSrc={cat.image}
                 title={cat.name}
-                href='/'
+                href={`/category/${cat.categoryId}`}
               />
             ))}
           </CarouselCard>
